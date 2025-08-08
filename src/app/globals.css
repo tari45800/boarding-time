@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --pc-padding: 8px; /* 모바일 기본 */
+}
+
+/* lg 이상에서 값 교체 */
+@media (min-width: 1024px) {
+  :root {
+    --pc-padding: 16px;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
