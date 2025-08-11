@@ -1,5 +1,5 @@
-import Link from "next/link";
+import { TempMain } from '@/components/layouts/TempMain';
 
 export default function Home() {
-  return <div className=""></div>;
+  return <TempMain />;
 }

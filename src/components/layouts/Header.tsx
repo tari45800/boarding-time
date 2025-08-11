@@ -1,14 +1,12 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 const Header = () => {
-  const headerHight = 20;
+  const headerHeight = '20';
 
   return (
-    <div className={`h-${headerHight}`}>
-      <div
-        className={`border flex justify-between items-center p-[var(--pc-padding)] w-full fixed h-${headerHight}`}
-      >
+    <div className={`h-${headerHeight}`}>
+      <div className={`fixed flex w-full items-center justify-between border p-[var(--pc-padding)] h-${headerHeight}`}>
         <Link href="/" className="text-3xl font-black">
           Boarding Time
         </Link>
