@@ -1,16 +1,22 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+// eslint.config.mjs
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import unusedImports from 'eslint-plugin-unused-imports';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export default tseslint.config(js.configs.recommended, ...tseslint.configs.recommended, {
+  files: ['**/*.{ts,tsx,js,jsx}'],
+  plugins: {
+    'simple-import-sort': simpleImportSort,
+    'unused-imports': unusedImports,
+  },
+  rules: {
+    //  임포트 정렬
+    'simple-import-sort/imports': 'warn',
+    'simple-import-sort/exports': 'warn',
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
+    //  안 쓰는 import/변수 자동 제거
+    'unused-imports/no-unused-imports': 'warn',
+    'unused-imports/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+  },
 });
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-];
-
-export default eslintConfig;
